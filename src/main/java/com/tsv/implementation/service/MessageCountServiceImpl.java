@@ -6,8 +6,11 @@ import com.tsv.implementation.dao.ChatMessageRepository;
 import com.tsv.implementation.dao.MessageCountRepository;
 import com.tsv.implementation.dao.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MessageCountServiceImpl implements MessageCountServie
@@ -32,5 +35,10 @@ public class MessageCountServiceImpl implements MessageCountServie
             return "success";
         }
 
+    }
+
+    @Override
+    public List<MessageCount> getRank() {
+        return messageCountRepository.findAllByOrderByMessageCountDesc();     //orderByCountDec();
     }
 }

@@ -55,7 +55,7 @@ public class LoginController {
 		UserDetails user = (UserDetails) securityContext.getAuthentication().getPrincipal();
 		User users = userRepo.findByEmail(user.getUsername());
 		if(users.getOtp() == userLoginDTO.getOtp())
-		return "redirect:/count";     //redirect:/dashboard
+		return "redirect:/link";     //redirect:/dashboard
 		else
 			return "redirect:/login/otpVerification?error";
 	}

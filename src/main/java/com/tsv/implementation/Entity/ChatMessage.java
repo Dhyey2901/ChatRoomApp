@@ -27,6 +27,10 @@ public class ChatMessage {
     private String message;
 
 
+
+
+
+
     public ChatMessage() {
         super();
     }
@@ -72,4 +76,6 @@ public class ChatMessage {
     public void setMessage(String message) {
         this.message = message;
     }
+
+
 }

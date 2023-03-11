@@ -1,14 +1,22 @@
 package com.tsv.implementation.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.mysql.cj.xdevapi.JsonArray;
 import com.tsv.implementation.Entity.MessageCount;
 import com.tsv.implementation.dao.MessageCountRepository;
 import com.tsv.implementation.dto.UserLoginDTO;
 import com.tsv.implementation.service.MessageCountServie;
+import netscape.javascript.JSObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/count")
@@ -22,6 +30,22 @@ public class MessageCountController
 
     @ModelAttribute("user")
     public MessageCount messageCount() {return new MessageCount();}
+
+
+
+
+
+    @GetMapping("/rank")
+    public String getCount() throws JsonProcessingException {
+
+       List<MessageCount> data =  messageCountServie.getRank();
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayNode arrayNode = mapper.valueToTree(data);
+        String jason = mapper.writeValueAsString(arrayNode);
+        System.out.println(jason);
+        //JsonArray
+        return jason;
+    }
 
     //@PostMapping("/addon")
     //@RequestParam("username")
@@ -58,7 +82,4 @@ public class MessageCountController
         }
         return "redirect:/count";
     }
-
-
-
 }
