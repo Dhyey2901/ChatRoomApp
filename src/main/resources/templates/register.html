@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
 <link rel="stylesheet" 
@@ -63,6 +63,16 @@
                             class="form-control" type="password" 
                           th:field="*{password}" required
                             autofocus="autofocus" />
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label" for="role">
+                            Role
+                        </label>
+                        <select id="role" th:field="*{role}" class="form-control  form-control-lg" >
+                            <option value="USER">USER</option>
+                            <option value="HOST">HOST</option>
+                        </select>
                     </div>
 
                     <div class="form-group">
