@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SetDiscussion</title>
+
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<style>
+      .navbar {
+        background-color: cadetblue;
+      }
+
+</style>
+<body>
+      <!-- create navigation bar ( header) -->
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <h1>GenerateLink</h1>
+        </div>
+      </nav>
+
+
+      <br><br><br><br><br><br><br>
+
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-md-6 col-md-offset-3">
+
+              <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+
+            <h1>Set Discussion Topic </h1>
+
+            <form th:action="@{/topic/set}" method="post" th:object="${user}">
+                <div class="form-group">
+
+                    <label class="control-label" for="dis"> Enter Topic
+
+                    </label> <input id="dis" class="form-control"
+
+                                    th:field="*{topic}" required autofocus="autofocus"
+                />
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        Set </button>
+                    <span> <a href="/" th:href="@{/api}">next</a></span>
+                </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+</body>
+</html>
