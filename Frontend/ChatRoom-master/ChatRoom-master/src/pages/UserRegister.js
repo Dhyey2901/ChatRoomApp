@@ -3,6 +3,7 @@ import Border from "../Components/Border";
 import "../Style/User_register.css";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function UserRegister() {
   const location = useLocation();
@@ -29,9 +30,9 @@ export default function UserRegister() {
     };
 
     try {
-      const res = await axios.post("http://localhost:3001/users", obj);
-      // console.log(res.data);
-      alert("Registration successful!! You may now login");
+      const res = await axios.post("http://localhost:8080/registration", obj);
+      console.log(res.data);
+      toast.success('Sign up successfully')
     } catch (err) {
       alert(err);
     }
@@ -87,28 +88,11 @@ export default function UserRegister() {
                 name="password"
                 placeholder="Enter Password"
               />
-              {/* <select
-                className="form-select"
-                name="role"
-                aria-label="Default select example"
-              >
-                <option selected>Select Role</option>
-                <option value="Admin">Admin</option>
-                <option value="Co-odrinator">Co-odrinator</option>
-                <option value="Host">Host</option>
-                <option value="Participant">Participant</option>
-                <option value="Viewer">Viewer</option>
-              </select> */}
+              
               <button className="bg-[#413D3D] rounded-xl text-white hover:scale-105 duration-300 py-2">
                 Submit
               </button>
             </form>
-            {/* <div className="mt-10 grid grid-cols-3 items-center text-gray-400">
-              <hr className="border-gray-400" />
-              <p className="text-center text-sm">OR</p>
-              <hr className="border-gray-400" />
-            </div> */}
-            {/* <p className="mt-5 text-xs border-b border-gray-400 py-4">Forgot your password?</p> */}
             <div className="mt-3 text-xs flex justify-between items-center">
               <p>If you are already member....</p>
               <Link exact to="/login" state={{ role: role }}>
