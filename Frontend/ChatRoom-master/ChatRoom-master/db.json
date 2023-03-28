@@ -1,0 +1,259 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Dhyey",
+      "branch": "cs",
+      "sem": 6,
+      "clg_id": "Clg_id",
+      "email": "email",
+      "password": "password",
+      "role": "role"
+    },
+    {
+      "name": "dhyey",
+      "branch": "it",
+      "sem": "6",
+      "clg_id": "testmail@gmail.com",
+      "email": "dhyey@gmail.com",
+      "password": "12345",
+      "role": "Participant",
+      "id": 2
+    },
+    {
+      "name": "jemin",
+      "branch": "cs",
+      "sem": "6",
+      "clg_id": "testmail2@gmail.com",
+      "email": "jemin@gmail.com",
+      "password": "12345",
+      "role": "Admin",
+      "id": 3
+    },
+    {
+      "name": "james",
+      "branch": "cse",
+      "sem": "7",
+      "clg_id": "testmail3@gmail.com",
+      "email": "james@gmail.com",
+      "password": "12345",
+      "role": "Admin",
+      "id": 4
+    },
+    {
+      "name": "james",
+      "branch": "cse",
+      "sem": "7",
+      "clg_id": "testmail4@gmail.com",
+      "email": "james123@gmail.com",
+      "password": "12345",
+      "role": "Admin",
+      "id": 5
+    },
+    {
+      "name": "james",
+      "branch": "cse",
+      "sem": "8",
+      "clg_id": "testmail7@gmail.com",
+      "email": "james12345@gmail.com",
+      "password": "12345",
+      "role": "Participant",
+      "id": 6
+    }
+  ],
+  "otps": [
+    {
+      "id": 1,
+      "otp": "1234"
+    },
+    {
+      "id": 2,
+      "otp": "3456"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "message": "Hello i am test message",
+      "name": "Dhyey"
+    },
+    {
+      "id": 3,
+      "message": "Hello i am test message2",
+      "name": "Dhyey"
+    },
+    {
+      "message": "hello",
+      "name": "Dhyey",
+      "id": 4
+    },
+    {
+      "message": "Hi I am James",
+      "name": "Dhyey",
+      "id": 5
+    },
+    {
+      "message": "dmsakdm",
+      "name": "Dhyey",
+      "id": 6
+    },
+    {
+      "message": "hi",
+      "name": "Dhyey",
+      "id": 7
+    },
+    {
+      "message": "hilsalmdlsad",
+      "name": "Dhyey",
+      "id": 8
+    },
+    {
+      "message": "test",
+      "name": "dhyey",
+      "id": 10
+    },
+    {
+      "message": "test",
+      "name": "jemin",
+      "id": 11
+    },
+    {
+      "message": "hello I am Jemin",
+      "name": "jemin",
+      "id": 12
+    },
+    {
+      "message": "Hi",
+      "name": "jemin",
+      "id": 13
+    },
+    {
+      "message": "hello",
+      "name": "dhyey",
+      "id": 14
+    },
+    {
+      "message": "hello",
+      "name": "dhyey",
+      "id": 15
+    },
+    {
+      "message": "hello",
+      "name": "dhyey",
+      "id": 16
+    },
+    {
+      "message": "hello",
+      "name": "dhyey",
+      "id": 17
+    },
+    {
+      "message": "sadslkamndkandskankldanddddddddddddddlkasdnlkandklndklasdksa",
+      "name": "jemin",
+      "id": 18
+    },
+    {
+      "message": "sdasd",
+      "name": "jemin",
+      "id": 19
+    },
+    {
+      "message": "adsadsad",
+      "name": "jemin",
+      "id": 20
+    },
+    {
+      "message": "adsadsadsadsad",
+      "name": "jemin",
+      "id": 21
+    },
+    {
+      "message": "adsadsadsadsadsadsa",
+      "name": "jemin",
+      "id": 22
+    },
+    {
+      "message": "adsadsadsadsadsadsa",
+      "name": "jemin",
+      "id": 23
+    },
+    {
+      "message": "hello",
+      "name": "jemin",
+      "id": 24
+    },
+    {
+      "message": "hello testing",
+      "name": "dhyey",
+      "id": 25
+    },
+    {
+      "message": "hello",
+      "name": "dhyey",
+      "id": 26
+    },
+    {
+      "message": "test",
+      "name": "dhyey",
+      "id": 27
+    },
+    {
+      "message": "test🙏🙏",
+      "name": "dhyey",
+      "id": 28
+    },
+    {
+      "message": "t",
+      "name": "dhyey",
+      "id": 29
+    },
+    {
+      "message": "nm ",
+      "name": "dhyey",
+      "id": 30
+    },
+    {
+      "message": "hejj",
+      "name": "dhyey",
+      "id": 31
+    },
+    {
+      "message": "hell",
+      "name": "dhyey",
+      "id": 32
+    },
+    {
+      "message": "test",
+      "name": "dhyey",
+      "id": 33
+    }
+  ],
+  "ranks": [
+    {
+      "id": 1,
+      "name": "dhyey",
+      "rank": 1
+    },
+    {
+      "id": 2,
+      "name": "jemin",
+      "rank": 2
+    },
+    {
+      "id": 3,
+      "name": "om",
+      "rank": 3
+    },
+    {
+      "id": 4,
+      "name": "kunj",
+      "rank": 4
+    },{
+      
+        "id": 5,
+        "name": "shubham",
+        "rank": 5
+      
+    }
+  ]
+}
