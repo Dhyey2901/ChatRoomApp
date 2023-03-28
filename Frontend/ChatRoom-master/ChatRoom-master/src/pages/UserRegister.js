@@ -39,11 +39,11 @@ export default function UserRegister() {
   };
   return (
     <>
-      <section className="bg-[#413D3D] min-h-screen flex items-center justify-center">
+      <section className="bg-[#5b5656] min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-screen px-16">
-            <h2 className="font-bold text-2xl text-[#413D3D]">Registration</h2>
-            {/* <p className="text-sm mt-4 text-[#413D3D]">
+            <h2 className="font-bold text-2xl text-[#5b5656]">Registration</h2>
+            {/* <p className="text-sm mt-4 text-[#5b5656]">
               If you are already member, login yourself
             </p> */}
             <Border />
@@ -89,7 +89,7 @@ export default function UserRegister() {
                 placeholder="Enter Password"
               />
               
-              <button className="bg-[#413D3D] rounded-xl text-white hover:scale-105 duration-300 py-2">
+              <button className="bg-[#5b5656] rounded-xl text-white hover:scale-105 duration-300 py-2">
                 Submit
               </button>
             </form>

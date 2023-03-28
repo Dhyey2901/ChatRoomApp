@@ -9,13 +9,13 @@ export default function AddParticipant() {
 
   return (
     <>
-      <section className="bg-[#413D3D] min-h-screen flex items-center justify-center">
+      <section className="bg-[#5b5656] min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-screen px-16">
             <h2 className="font-bold text-2xl text-[#2c2b2b]">
               Add Participants
             </h2>
-            {/* <p className="text-sm mt-4 text-[#413D3D]">
+            {/* <p className="text-sm mt-4 text-[#5b5656]">
               If you are already member, login yourself
             </p> */}
             <Border />

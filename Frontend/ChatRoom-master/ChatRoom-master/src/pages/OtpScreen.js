@@ -38,10 +38,10 @@ export default function OtpScreen() {
   };
   return (
     <>
-      <section className="bg-[#413D3D] min-h-screen flex items-center justify-center">
+      <section className="bg-[#5b5656] min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-3xl shadow-lg max-w-2xl p-4 items-center">
           <div className="md:w-screen px-16">
-            <h1 className="font-bold text-2xl text-[#413D3D]">
+            <h1 className="font-bold text-2xl text-[#5b5656]">
               Verify Account
             </h1>
             <Border />
@@ -79,7 +79,7 @@ export default function OtpScreen() {
                 />
               </div>
 
-              <button className="bg-[#413D3D] rounded-xl text-white hover:scale-105 duration-300 py-2">
+              <button className="bg-[#5b5656] rounded-xl text-white hover:scale-105 duration-300 py-2">
                 Submit
               </button>
             </form>
