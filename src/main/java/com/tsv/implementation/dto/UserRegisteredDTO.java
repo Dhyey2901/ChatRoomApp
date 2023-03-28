@@ -14,6 +14,37 @@ public class UserRegisteredDTO {
 	
 	String role;
 
+
+	private int sem;
+
+	private String branch;
+
+	private  String collage_id;
+
+	public int getSem() {
+		return sem;
+	}
+
+	public void setSem(int sem) {
+		this.sem = sem;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public String getCollage_id() {
+		return collage_id;
+	}
+
+	public void setCollage_id(String collage_id) {
+		this.collage_id = collage_id;
+	}
+
 	public String getName() {
 		return name;
 	}

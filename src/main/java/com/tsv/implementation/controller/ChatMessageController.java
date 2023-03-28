@@ -2,9 +2,10 @@ package com.tsv.implementation.controller;
 
 //import com.chat.app.chatroomapp.App.Entity.ChatMessage;
 //import com.chat.app.chatroomapp.App.Service.ChatMessageService;
-import com.tsv.implementation.Entity.ChatMessage;
-import com.tsv.implementation.Entity.MessageCount;
-import com.tsv.implementation.Entity.User;
+import com.tsv.implementation.Entity.*;
+import com.tsv.implementation.dao.LinkRepository;
+import com.tsv.implementation.dao.MessageCountRepository;
+import com.tsv.implementation.dao.RoleRepository;
 import com.tsv.implementation.dao.UserRepository;
 import com.tsv.implementation.dto.UserLoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 import  com.tsv.implementation.service.ChatMessageService;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/api")
@@ -25,9 +28,19 @@ public class ChatMessageController {
     private  ChatMessageService chatMessageService;
 
     @Autowired
+    private MessageCountRepository messageCountRepository;
+    @Autowired
     private MessageCountController messageCountController;
+
+    @Autowired
+    private LinkRepository linkRepository;
     @Autowired
     UserRepository userRepo;
+
+    @Autowired
+    RoleRepository roleRepository;
+
+
     @GetMapping
    public String indexPage(Model model)
     {
@@ -36,7 +49,34 @@ public class ChatMessageController {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         UserDetails user = (UserDetails)securityContext.getAuthentication().getPrincipal();
         User users = userRepo.findByEmail(user.getUsername());
-        model.addAttribute("userDetails", users.getEmail());
+        String email = users.getEmail();
+        Optional<Role> role = roleRepository.findById(users.getId());
+      //  Role role =roleRepository.findByE(users.getEmail());
+
+           String mainRole = null;
+            if(role == null)
+            {
+                Role r = role.get();
+                 mainRole= r.getRole();
+                System.out.println(mainRole);
+            }
+
+
+
+
+        if(mainRole != "HOST" || mainRole == null)
+        {
+            MessageCount mc = messageCountRepository.findByUserName(email);
+            int linkdata =  mc.getLink();
+            Link linkUser = linkRepository.findByLink(linkdata);
+            if(linkUser != null && mc != null)
+            {
+                model.addAttribute("link" ,linkdata);
+                model.addAttribute("topic",linkUser.getTopic());
+            }
+        }
+
+        model.addAttribute("userDetails", email);
         return "index";
     }
 
@@ -52,11 +92,12 @@ public class ChatMessageController {
         return chatMessageService.getMessagesForGroup(groupId);
     }
     //
-    @PostMapping("/groups/{groupId}/messages")
+    @PutMapping("/groups/{groupId}/messages")
     public void saveMessage(@RequestParam("chat_message") String message,@RequestParam("username") String mail, @PathVariable long groupId) {
        ChatMessage chatMessage = new ChatMessage();
         chatMessage.setMessage(message);
         chatMessage.setGroupId(groupId);
+        chatMessage.setSenderId(mail);
         chatMessage.setTimestamp(LocalDateTime.now());
         System.out.println(message);
         System.out.println(groupId);

@@ -10,5 +10,8 @@ import java.util.List;
 public interface MessageCountRepository extends JpaRepository<MessageCount , Integer>
 {
       MessageCount findByUserName(String userName);
-      List<MessageCount> findAllByOrderByMessageCountDesc();            //orderByCountDec();
+      List<MessageCount> findAllByOrderByMessageCountDesc();//orderByCountDec();
+
+
+     // MessageCount getReferenceByUserName(String mail);
 }

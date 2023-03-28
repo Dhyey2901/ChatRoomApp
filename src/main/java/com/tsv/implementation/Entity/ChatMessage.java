@@ -18,7 +18,7 @@ public class ChatMessage {
     private long groupId;
 
 
-    private long senderId;
+    private String senderId;
 
 
     private LocalDateTime timestamp;
@@ -34,7 +34,7 @@ public class ChatMessage {
     public ChatMessage() {
         super();
     }
-    public ChatMessage(long groupId, long senderId, LocalDateTime timestamp, String message) {
+    public ChatMessage(long groupId, String senderId, LocalDateTime timestamp, String message) {
 
        super();
         this.groupId = groupId;
@@ -53,11 +53,11 @@ public class ChatMessage {
         this.groupId = groupId;
     }
 
-    public long getSenderId() {
+    public String getSenderId() {
         return senderId;
     }
 
-    public void setSenderId(long senderId) {
+    public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
 

@@ -41,38 +41,24 @@
 
             }
 
-          /*  let count = {
 
-            }*/
             stompClient.send("/app/message" , {} ,JSON.stringify(jasonOb) );
             descriptiveFunctionName()
-            autoRefresh();
-            //secondDescriptiveFunctionName()
 
 
             function descriptiveFunctionName() {
+
+                var linkVar = document.getElementById("link-value").value
+              //   var linkVar = $("link-value").
+                console.log(linkVar)
                 $.ajax({
-                    type: "POST",
-                    url: "api/groups/4567/messages",
+                    type: "PUT",
+                    url: "api/groups/"+linkVar+"/messages",
                     //dataType: 'jsonp',
                     data: messageData
 
                 });
             }
-
-             /*  function secondDescriptiveFunctionName()
-               {
-
-                   $.ajax({
-                       type: "POST",
-                       url: "/count/addon",
-                       data: count
-                   });
-               }*/
-
-
-            // LIVE RANKING JAVASCRIPT
-
 
         }
        function connect()
@@ -115,6 +101,7 @@
 
            $("#send-btn").click(()=>{
                sendMessage()
+               autoRefresh();
            })
 
            $("#logout").click(()=> {
@@ -133,67 +120,39 @@
        })
 
 
-        //LIVE RANKIN JAVASCRIPT
-        // Function to fetch data from the server and update the table
-       /* function fetchData() {
-            // Use AJAX to fetch data from the server
-            // Replace the URL with the actual API endpoint that fetches data from the database
-            fetch('/count/rank')
-                .then(response => response.json())
-                .then(data => {
-                    data = JSON.parse(data);
-                    // Update the table with the fetched data
-                    const tableBody = document.querySelector('#myTable tbody');
-                    tableBody.innerHTML = '';
-                    data.forEach(item => {
-                        const row = `
-          <tr>
-            <td>${item.name}</td>
-            <td>${item.email}</td>
-          </tr>
-        `;
-                        tableBody.insertAdjacentHTML('beforeend', row);
-                    });
+
+
+
+
+            function fetchData()
+            {
+                $.ajax({
+                    url: "/count/rank",
+                    type: "GET",
+                    success: function(data) {
+                        var rankTable = $("#rank-table");
+                        rankTable.empty();
+                        $.each(data, function(index, rankingData) {
+                            var rankRow = $("<tr>");
+                            rankRow.append($("<td>").text(rankingData.userName));
+                            rankRow.append($("<td>").text(rankingData.userName));
+                            rankRow.append($("<td>").text(rankingData.messageCount));
+                            rankTable.append(rankRow);
+                        });
+                    }
                 });
-        }*/
-         function fetchData()
-        {
-            $.ajax({
-                type: "GET",
-                url: "/count/rank",
-                dataType: "json",
-               success:  function(data) {
-                    data = JSON.parse(data);
-                    console.log("hi")
-                    console.log(data);
-                    $.each(data, function(index, element) {
-                        var row = $('<tr>');
-                        var name = $('<td>').text(data.userName);
-                        var count = $('<td>').text(data.messageCount);
-                        row.append(name);
-                        row.append(count);
-                        $('#myTable').append(row);
-                    });
-                },
-                error: function() {
-                    alert('Error loading data.');
-                }
-            });
-        };
+            }
 
 
 
-        // Call the fetchData function initially to load the table with data
 
-
-        // Function to continuously fetch data from the server every 5 seconds and update the table
         function autoRefresh() {
             setInterval(() => {
                 fetchData();
-            }, 1000);
-        }
+            }, 1000)}
 
-        // Call the autoRefresh function to start the automatic refreshing of the table
+
+
 
 
     </script>
@@ -257,20 +216,56 @@
         </div>
     </div>
 
-    <div id="dynamicTable">
-        <table id="myTable">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Count</th>
-            </tr>
-            </thead>
-            <tbody>
 
-            <!-- Table rows will be dynamically added using JavaScript -->
-            </tbody>
-        </table>
-    </div>
+   <!-- <table>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody id="rankingTableBody">
+        <tr th:each="ranking, rank : ${rankings}">
+            <td th:text="${rank.index + 1}"></td>
+            <td th:text="${ranking.userName}"></td>
+            <td th:text="${ranking.messageCount}"></td>
+        </tr>
+        </tbody>
+    </table> -->
+
+
+    <table>
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+        </tr>
+        </thead>
+        <tbody id="rank-table">
+        <!-- Ranking data will be displayed here -->
+        </tbody>
+    </table>
+
+    <input
+            type="text"
+            id="link-value"
+            class="form-control"
+            th:value ="*{link}"
+            readonly
+            hidden
+    />
+
+    <input
+            type="text"
+            id="topic-value"
+            class="form-control"
+            th:value ="*{topic}"
+            readonly
+            hidden
+    />
+
 </div>
 <script src="../static/script.js"></script>
 

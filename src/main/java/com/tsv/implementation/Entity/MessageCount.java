@@ -14,6 +14,18 @@ public class MessageCount
     private String userName;
     private int messageCount;
 
+
+
+    private int link;
+
+    public int getLink() {
+        return link;
+    }
+
+    public void setLink(int link) {
+        this.link = link;
+    }
+
     public MessageCount() {
     }
 

@@ -36,7 +36,7 @@ public class LinkVerfiController {
          String messg = linkVerifyService.checking(data);
         if(messg == "success")
         {
-            redirectAttributes.addFlashAttribute("message", "USer Authorized Successfully");
+            redirectAttributes.addFlashAttribute("message", "User Authorized Successfully");
             redirectAttributes.addFlashAttribute("alertClass", "alert-success");
             return "redirect:/api";
         }

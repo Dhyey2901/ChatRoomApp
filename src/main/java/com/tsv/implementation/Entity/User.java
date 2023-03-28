@@ -26,6 +26,40 @@ public class User {
 	private String email;
 	
 	private String password;
+
+
+	private int sem;
+
+	private String branch;
+
+	private  String collage_id;
+
+	public int getSem() {
+		return sem;
+	}
+
+	public void setSem(int sem) {
+		this.sem = sem;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+
+	public String getCollage_id() {
+		return collage_id;
+	}
+
+	public void setCollage_id(String collage_id) {
+		this.collage_id = collage_id;
+	}
+
+
+
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "cust_id", referencedColumnName = "id"),

@@ -11,4 +11,5 @@ import com.tsv.implementation.Entity.Role;
 public interface RoleRepository extends JpaRepository<Role, Integer>{
 
 	Role findByRole(String name);
+
 }

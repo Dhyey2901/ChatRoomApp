@@ -48,6 +48,9 @@ public class SpringSecurityConfig {
         http.csrf().disable()
         .authorizeRequests()
         .antMatchers("/registration/**").permitAll()
+                //.antMatchers("/link").hasAnyRole("HOST")
+        //.antMatchers("/topic").hasAnyRole("HOST")
+                //.antMatchers("/verifyLink").hasAnyRole("USER")
         .and()
         .formLogin(
                 form -> form

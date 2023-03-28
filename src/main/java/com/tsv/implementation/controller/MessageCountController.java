@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.List;
 
 @Controller
@@ -35,16 +34,14 @@ public class MessageCountController
 
 
 
+    //@PostMapping("/rank")
     @GetMapping("/rank")
-    public String getCount() throws JsonProcessingException {
+    @ResponseBody
+    public List<MessageCount> getCount() throws JsonProcessingException {
 
        List<MessageCount> data =  messageCountServie.getRank();
-        ObjectMapper mapper = new ObjectMapper();
-        ArrayNode arrayNode = mapper.valueToTree(data);
-        String jason = mapper.writeValueAsString(arrayNode);
-        System.out.println(jason);
-        //JsonArray
-        return jason;
+
+        return data;
     }
 
     //@PostMapping("/addon")
@@ -71,6 +68,7 @@ public class MessageCountController
         String messg = messageCountServie.validateFromDatabase(messageCount);
         if(messg == "success")
         {
+
             redirectAttributes.addFlashAttribute("message", "User added Successfully");
             redirectAttributes.addFlashAttribute("alertClass", "alert-success");
 
