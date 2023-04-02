@@ -3,15 +3,7 @@ package com.tsv.implementation.Entity;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
@@ -20,11 +12,11 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String email;
-	
+
 	private String password;
 
 
@@ -38,8 +30,8 @@ public class User {
 		return sem;
 	}
 
-	public void setSem(int sem) {
-		this.sem = sem;
+	public void setSem(String sem) {
+		this.sem = Integer.parseInt(sem);
 	}
 
 	public String getBranch() {
@@ -59,13 +51,19 @@ public class User {
 	}
 
 
+	public Set<Role> getRoles() {
+		return roles;
+	}
 
-	
-	@ManyToMany(fetch = FetchType.EAGER)
+	public void setRoles(Role role) {
+		this.roles.add(role);
+	}
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "cust_id", referencedColumnName = "id"),
-	inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id") )
+			inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id") )
 	Set<Role> roles = new HashSet<Role>();
-	
+
 	private int otp;
 	public int getId() {
 		return id;
@@ -75,13 +73,17 @@ public class User {
 		this.id = id;
 	}
 
-	public Set<Role> getRole() {
-		return roles;
-	}
+//	public String getRole() {
+//		return role;
+//	}
 
-	public void setRole(Role role) {
-		this.roles.add(role);
-	}
+//	public Set<Role> getRole() {
+//		return roles;
+//	}
+//
+//	public void setRole(Role role) {
+//		this.roles.add(role);
+//	}
 
 	public String getName() {
 		return name;
@@ -91,7 +93,7 @@ public class User {
 		this.name = name;
 	}
 
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -115,7 +117,6 @@ public class User {
 	public void setOtp(int otp) {
 		this.otp = otp;
 	}
-	
-	
-	
+
+
 }
